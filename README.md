@@ -69,6 +69,9 @@ Or alternatively you can do this,
 20. If everything works, you can login from local machine as `grader`.
  * `sudo grader@54.191.164.45 -p 2200 -i ~/.ssh/grader`
  
+ Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604), [Digital Ocean](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
+ 
+ 
  ## Update all currently installed packages
 21. To update packages:
   * `sudo apt-get update`
@@ -143,5 +146,29 @@ Resource: [Stackoverflow](https://stackoverflow.com/questions/6142437/make-git-d
     
     `sys.exit(__main__._main())`
 
+ Resource: [Stackoverflow](https://stackoverflow.com/questions/28210269/importerror-cannot-import-name-main-when-running-pip-version-command-in-windo)
  
+41. Install all other dependencies for catalog app.
+  * `sudo pip install httplib2`
+  * `sudo pip install oauth2client`
+  * `sudo pip install sqlalchemy`
+  * `sudo pip install psycopg2`
+  * `sudo pip install requests`
+  * `sudo pip install Flask-SQLAlchemy`
+  * `sudo pip install flask-seasurf` - this is optional, but is a good idea if you want to prevent cross-site request forgery (CSRF) while using Flask.
+
+## Configure virtual host
+42. Install virtual environment (stay in `/var/www/catalog`).
+  * Install virtual environment: `sudo pip install virtual env` (within `/var/www/catalog`)
+  * Create a new virtual environment: `sudo virtualenv venv`
+  * Activate virtual environment: `source venv/bin/activate`
   
+Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-run-django-with-mod_wsgi-and-apache-with-a-virtualenv-python-environment-on-a-debian-vps)
+
+
+
+
+## Installing & Securing PosgreSQL DB
+Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
+[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
