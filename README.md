@@ -125,5 +125,6 @@ Resource: [askubuntu](https://askubuntu.com/questions/138423/how-do-i-change-my-
   * `touch .htaccess`
   * `nano .htaccess`
   * Add `RedirectMatch 404 /\.git` and save the file.
+
 Resource: [Stackoverflow](https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible)
 
