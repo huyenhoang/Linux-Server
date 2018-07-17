@@ -136,8 +136,10 @@ Resource: [Stackoverflow](https://stackoverflow.com/questions/6142437/make-git-d
   Note: with pip 10.0.0, there is a bug so in linux, you need to modify file `/usr/bin/pip`:
   * `sudo nano /usr/bin/pip`
   * change the content to this:
-    `from pip import __main__` 
-    `if __name__ == '__main__':`     
+    `from pip import __main__`
+    
+    `if __name__ == '__main__':`
+    
     `sys.exit(__main__._main())`
 
  
