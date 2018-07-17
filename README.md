@@ -193,9 +193,44 @@ Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-t
     `LogLevel warn`     
     `CustomLog ${APACHE_LOG_DIR}/access.log combined` 
     `</VirtualHost>`
-
-
+  * Enable the virtual host: `sudo a2ensite catalog`
+46. Create a catalog.wsgi file
+  * `cd /var/www/catalog`
+  * `sudo nano catalog.wsgi`
+  * then add these codes (replace `secret` with catalog app’s secret.)
+   `import sys`
+   `import logging` 
+   `logging.basicConfig(stream=sys.stderr)` 
+   `sys.path.insert(0, "/var/www/catalog/")`  
+   `from catalog import app as application` 
+   `application.secret_key = 'secret'`
+ 
+Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps), [Youtube](https://www.youtube.com/watch?v=kDRRtPO0YPA)
 
 ## Installing & Securing PosgreSQL DB
+47. Install psycopg2 & Python packages for PostgreSQL
+  * `sudo apt-get install python-psycopg2`
+  * `sudo apt-get install libpq-dev python-dev`
+48. Install PostgreSQL
+  * `sudo apt-get update`
+  * `sudo apt-get install postgresql postgresql-contrib`
+  * `sudo su - postgres`
+  * `psql`
+49. Configure PostgreSQL (after `psql`)
+  * `CREATE USER catalog WITH PASSWORD 'password';` (this is a placeholder, not the actual password I used)
+  * `ALTER USER catalog CREATEDB;`
+  * `CREATE DATABASE catalog WITH OWNER catalog;`
+  * `\c catalog`
+  * `REVOKE ALL ON SCHEMA public FROM public;`
+  * `GRANT ALL ON SCHEMA public TO catalog;`
+  * `\q`
+  * `exit`
+50. Check the default setting to make sure remote connection is not allowed:
+  * `sudo nano /etc/postgresql/9.5/main/pg_hba.conf` 
+51. Update DB connection.
+  * Use nano to change `create_engine` line in `__init__.py`, `lotsofbrands.py`, and  `category_db_setup.py` to:
+  * `engine = create_engine('postgresql://catalog:linuxpassword@localhost/catalog')`
+
 Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+
