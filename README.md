@@ -169,30 +169,30 @@ Resource: [Stackoverflow](https://stackoverflow.com/questions/6142437/make-git-d
   * `sudo python __init__.py`
   * Control C to quit, then `deactivate`
   
-Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps),
 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-run-django-with-mod_wsgi-and-apache-with-a-virtualenv-python-environment-on-a-debian-vps)
 
 45. Configure & enable new Virtual Host Config file.
   * `sudo nano /etc/apache2/sites-available/ctalog.conf`
   * Add the below codes:
-   `<VirtualHost *:80>     
-    ServerName 54.191.164.45     
-    ServerAdmin grader@54.191.164.45
-    ServerAlias    ec2-54-191-164-45.us-west-2.compute.amazonaws.com
-    WSGIScriptAlias / /var/www/catalog/catalog.wsgi     
-    <Directory /var/www/catalog/catalog/>         
-    Order allow,deny         
-    Allow from all      
-    </Directory>     
-    Alias /static /var/www/catalog/catalog/static     
-    <Directory /var/www/catalog/catalog/static/>         
-    Order allow,deny         
-    Allow from all     
-    </Directory>     
-    ErrorLog ${APACHE_LOG_DIR}/error.log     
-    LogLevel warn     
-    CustomLog ${APACHE_LOG_DIR}/access.log combined 
-    </VirtualHost>`
+    `<VirtualHost *:80>`     
+    `ServerName 54.191.164.45`     
+    `ServerAdmin grader@54.191.164.45`
+    `ServerAlias    ec2-54-191-164-45.us-west-2.compute.amazonaws.com`
+    `WSGIScriptAlias / /var/www/catalog/catalog.wsgi `    
+    `<Directory /var/www/catalog/catalog/>`         
+    `Order allow,deny`         
+    `Allow from all`      
+    `</Directory>`     
+    `Alias /static /var/www/catalog/catalog/static`     
+    `<Directory /var/www/catalog/catalog/static/>`         
+    `Order allow,deny`         
+    `Allow from all`     
+    `</Directory>`     
+    `ErrorLog ${APACHE_LOG_DIR}/error.log`     
+    `LogLevel warn`     
+    `CustomLog ${APACHE_LOG_DIR}/access.log combined` 
+    `</VirtualHost>`
 
 
 
