@@ -69,4 +69,14 @@ Or alternatively you can do this,
 20. If everything works, you can login from local machine as `grader`.
  * `sudo grader@54.191.164.45 -p 2200 -i ~/.ssh/grader`
  
- 
+ ## Update all currently installed packages
+21. To update packages:
+  * `sudo apt-get update`
+22. To ugprade packages: 
+  * `sudo apt-get upgrade`
+
+## Configure Time Zone
+23. Set to UTC
+  * `sudo dpkg-reconfigure tzdata`
+  * Select `none of the above`, then `UTC`
+Resource: [askubuntu](https://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt)
