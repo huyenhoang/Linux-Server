@@ -79,6 +79,7 @@ Or alternatively you can do this,
 23. Set to UTC
   * `sudo dpkg-reconfigure tzdata`
   * Select `none of the above`, then `UTC`
+
 Resource: [askubuntu](https://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt)
 
 ## Configure Firewall
@@ -128,3 +129,16 @@ Resource: [askubuntu](https://askubuntu.com/questions/138423/how-do-i-change-my-
 
 Resource: [Stackoverflow](https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible)
 
+## Python and other dependencies
+40. Install Python framework pip
+  * `sudo apt-get install python-pip` (within `/var/www/catalog`)
+  * `pip install-upgrade pip`. 
+  Note: with pip 10.0.0, there is a bug so in linux, you need to modify file `/usr/bin/pip`:
+  * `sudo nano /usr/bin/pip`
+  * change the content to this:
+    `from pip import __main__` 
+    `if __name__ == '__main__':`     
+    `sys.exit(__main__._main())`
+
+ 
+  
