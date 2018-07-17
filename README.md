@@ -80,3 +80,50 @@ Or alternatively you can do this,
   * `sudo dpkg-reconfigure tzdata`
   * Select `none of the above`, then `UTC`
 Resource: [askubuntu](https://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt)
+
+## Configure Firewall
+24. Check firewall status.
+  * sudo ufw status
+25. Block incoming connections on all the ports.
+  * `sudo ufw default deny incoming`
+26. Allow outgoing connections on all ports.
+  * `sudo ufw default allow outgoing`
+27. Allow incoming connection for SSH(port 2200)
+ * `sudo ufw allow 2200/tcp`
+28. Allow incoming connection for HTTP(port 80)
+  * `sudo ufw allow 80/tcp`
+29. Allow incoming connection for NTP(port 123)
+  * `sudo ufw allow 123/udp`
+30 Check added rules.
+  * `sudo ufw show added`
+31. Enable the firewall
+  * `sudo ufw enable`
+32. Check if firewall is enabled.
+  * `sudo ufw status`
+
+## Setting up Apache Server
+33. Install apache
+  * `sudo apt-get install apache2`
+34. Install mod_wsgi
+  * `sudo apt-get install libapache2-mod-wsgi python-dev`
+35. Enable mod_wsgi andstart the server
+  * `sudo a2enmod wsgi`
+  * `sudo service apache2 start`
+  
+## Install version control and clone catalog repository
+36. Install git
+  * sudo apt-get install git`
+37. Clone the catalog app from Github
+  * `cd /var/www`
+  * `sudo mkdir catalog`
+  * Change owner of the newly create `catalog` folder: `sudo chown -R grader:grader catalog`
+  * `cd catalog`
+  * `git clone https://github.com/huyenhoang/catalog-app catalog`
+38. Change the cloned `application.py` file to `__init__.py` using the `mv` command
+  * `mv application.py __init__.py`
+39. To make git repository inaccessible via the web browser with `.htacess` file inside `/var/www/catalog` (the root of the server):
+  * `touch .htaccess`
+  * `nano .htaccess`
+  * Add `RedirectMatch 404 /\.git` and save the file.
+Resource: [Stackoverflow](https://stackoverflow.com/questions/6142437/make-git-directory-web-inaccessible)
+
