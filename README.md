@@ -267,5 +267,5 @@ Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-t
   * In virtual host, open up the client_secrets.json file and update to include these host name and public IP address additions.
 There might be some issues with https and future updates by Google & Facebook for these login APIs.
 
-Resource: [Udacity Forum](https://discussions.udacity.com/t/https-required-for-facebook-login/577513)
+Resource: [Udacity Forum](https://discussions.udacity.com/t/https-required-for-facebook-login/577513), [Udacity Forum](https://discussions.udacity.com/t/add-aws-light-sail-url-in-facebook/459464)
 
