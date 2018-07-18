@@ -269,3 +269,8 @@ There might be some issues with https and future updates by Google & Facebook fo
 
 Resource: [Udacity Forum](https://discussions.udacity.com/t/https-required-for-facebook-login/577513), [Udacity Forum](https://discussions.udacity.com/t/add-aws-light-sail-url-in-facebook/459464)
 
+Update packages
+57. Update all packages: `sudo apt-get update`
+58. Automatically update packages: `sudo apt install unattended-upgrades`
+
+Resource: [ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)
