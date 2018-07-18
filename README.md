@@ -2,8 +2,11 @@
 Linux Config for deployment of a Flask App.
 
 Public IP: 54.191.164.45
+
 Host name: http://ec2-54-191-164-45.us-west-2.compute.amazonaws.com/
+
 Host name can be found using https://remote.12dt.com
+
 Resource: [Udacity Forum](https://discussions.udacity.com/t/linux-server-configuration-clientsecrets-database-logout-issues/812190/2)
 
 ## Setting up Lightsail & SSH into root user
