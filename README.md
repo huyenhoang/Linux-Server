@@ -57,7 +57,7 @@ Or alternatively you can do this,
   * `mkdir .ssh`
 16. Make authorized key file
   * Touch `.ssh/authorized_keys`
-17. Open up that authorized keys file and past public key into it.
+17. Open up that authorized keys file and paste public key into it.
   * `sudo nano .ssh/authorized_keys`
   * Save it
 18. Change permission of .ssh file
