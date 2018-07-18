@@ -234,3 +234,33 @@ Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-t
 Resource: [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
 
+## Running Catalog Application
+52. Setup Databse and add data
+  * `python /var/www/catalog/catalog/category_db_setup.py`
+  * `python /var/www/catalog/catalog/lotsofbrands.py`
+53. Update path of `client_secrets.json` file and `fb_client_secrets.json` file.
+  * `nano __init__.py`
+  * Find this line of code: `CLIENT_ID = json.loads( open('client_secrets.json', 'r').read())['web']['client_id']`
+  * Change `open('client_secrets.json', 'r').read())['web']['client_id']`
+  * to  `open(r'/var/www/catalog/catalog/client_secrets.json', 'r').read())['web']['client_id']`
+  * Scroll down the `__init__.py` file to find the pathway for the `fb_client_secrets.json` file and do the same change above.
+  
+## Update your Oauth login
+54. Make sure the host name in the virtual host config. file is right.
+  * `sudo nano /etc/apache2/sites-available/catalog.conf.`
+  * Make sure the `ServerAlias` is the host name below: `ServerAlias ec2-54-191-164-45.us-west-2.compute.amazonaws.com`
+  * Enable the virtual host:`sudo a2ensite catalog`
+55. Update Facebook oauth login Redirects URIs.
+  * Go to Facebook Developers https://developers.facebook.com/apps/
+  * Find the app, then Settings, then “Facebook Login”, and update the Valid OAuth Redirect URIs to include the following host name and public IP: `ec2-54-191-164-45.us-west-2.compute.amazonaws.com`, `54.191.164.45`
+  * In virtual host, open up the `fb_client_secrets.json` file and update to include the host name and public IP address.
+56. Update Google oauth login Redirect URIs.
+  * Go to Google Developers console: https://console.developers.google.com/ 
+  * Select Credentials and then select the Caatalog App.
+  * Add the hostname (`ec2-54-191-164-45.us-west-2.compute.amazonaws.com`) and public IP address (`54.191.164.45`) to the Authorized JavaScript origins
+  * Add the host name + 'oauth2callback' and host name + 'gconnect' to Authorized redirect URIs.
+  * In virtual host, open up the client_secrets.json file and update to include these host name and public IP address additions.
+There might be some issues with https and future updates by Google & Facebook for these login APIs.
+
+Resource: [Udacity Forum](https://discussions.udacity.com/t/https-required-for-facebook-login/577513)
+
