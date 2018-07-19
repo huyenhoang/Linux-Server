@@ -272,5 +272,13 @@ Resource: [Udacity Forum](https://discussions.udacity.com/t/https-required-for-f
 Update packages
 57. Update all packages: `sudo apt-get update`
 58. Automatically update packages: `sudo apt install unattended-upgrades`
+59. Sometimes, packages will still need to be updated after the commands above. The following four commands should resolve this:
+  * `sudo apt-get update`
+  * `sudo apt-get upgrade`
+  * `sudo apt-get dist-upgrade`
+  * `sudo /usr/lib/update-notifier/update-motd-updates-available --force`
+
+Resouce: [EC2](https://serverfault.com/questions/262751/update-ubuntu-10-04/262773#262773)
+
 
 Resource: [ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)
